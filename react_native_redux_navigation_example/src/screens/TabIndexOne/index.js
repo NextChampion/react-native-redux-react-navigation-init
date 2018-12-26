@@ -8,6 +8,7 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
+import { dispatch } from "../../redux";
 import Button from "../../components/Button";
 
 type Props = {};
@@ -22,6 +23,20 @@ export default class TabIndexOne extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>TabIndexOne</Text>
         <Button type="small" name="Go to next page" onPress={this.onStart} />
+        <Button
+          type="small"
+          name="Increment"
+          onPress={() => {
+            dispatch("INCREMENT");
+          }}
+        />
+        <Button
+          type="small"
+          name="Decrement"
+          onPress={() => {
+            dispatch("DECREMENT");
+          }}
+        />
       </View>
     );
   }

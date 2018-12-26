@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import Immutable from "immutable";
 
 export const version = {
   default: Immutable.fromJS({
@@ -7,7 +7,29 @@ export const version = {
   persist: true,
   actions: {
     SET_VERSION: {
-      reducer: (state, { payload }) => state.merge(payload),
+      reducer: (state, { payload }) => state.merge(payload)
+    }
+  }
+};
+
+export const counter = {
+  default: Immutable.fromJS({
+    count: 0
+  }),
+  actions: {
+    INCREMENT: {
+      reducer: state => {
+        const count = state.get("count");
+        const newCount = count + 1;
+        return state.merge({ count: newCount });
+      }
     },
-  },
+    DECREMENT: {
+      reducer: (state, { payload }) => {
+        const count = state.get("count");
+        const newCount = count - 1;
+        return state.merge({ count: newCount });
+      }
+    }
+  }
 };
