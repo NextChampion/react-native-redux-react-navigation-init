@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { connect } from '../redux';
 import Container from '../components/Container';
@@ -7,30 +8,19 @@ import UI from '../UI';
 import Button from '../components/Button';
 
 class Splash extends Component<{}> {
-  static navigationOptions = ({ navigation }) => {
-    const headerLeft = null;
-    const headerStyle = {
-      backgroundColor: UI.color.white1,
-      borderBottomWidth: 0,
-      shadowRadius: 0,
-      shadowOpacity: 0,
-      shadowOffset: {
-        height: 0,
-        width: 0,
-      },
-      elevation: 0,
-    };
-    return { headerLeft, headerStyle };
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   state = {};
 
-  componentDidMount() {
-    console.log('[SplashScreen], navigation', this.props.navigation);
-  }
+  componentDidMount() {}
 
   onStart = () => {
-    this.props.navigation.navigate('main');
+    const { navigation } = this.props;
+    navigation.navigate('main');
   };
 
   render() {

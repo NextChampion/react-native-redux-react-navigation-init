@@ -1,30 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { dispatch } from '../../redux';
 import Button from '../../components/Button';
 
 export default class TabIndexOne extends Component<Props> {
-  static navigationOptions = ({ navigation }) => {
-    console.log('onenavigationnavigation', navigation);
-    return {
-      title: `${navigation.state.routeName}'s Profile'`,
-    };
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.routeName}1`,
+  });
 
   onStart = () => {
     this.props.navigation.navigate('tabOneSecond');
   };
 
   render() {
-    console.log(' one navigation', this.props.navigation);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>

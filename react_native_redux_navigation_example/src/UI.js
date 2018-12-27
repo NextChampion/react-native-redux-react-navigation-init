@@ -20,13 +20,12 @@ const color = {
 };
 
 const size = {
-  deviceWidth: width,
-  deviceHeight: height,
+  screenWidth: width,
+  screenHeight: height,
 };
 
 const fontSize = {
   tiny: IS_IPHONE_SE ? 8 : 12,
-  small: 14,
   regular: IS_IPHONE_SE ? 14 : 16,
   large: IS_IPHONE_SE ? 16 : 18,
   big: IS_IPHONE_SE ? 26 : 30,
@@ -36,24 +35,20 @@ const fontSize = {
 const font = {
   title: {
     fontFamily: 'Avenir Next',
-    fontWeight: '600',
     color: color.black,
     fontSize: fontSize.large,
   },
-  whiteRobotRegular16: {
+  regular: {
     fontFamily: 'Avenir Next',
-    fontWeight: '400',
     color: color.white1,
     fontSize: fontSize.regular,
   },
-  regular: {
+  bold: {
     fontFamily: 'Avenir Next',
-    fontWeight: '400',
+    fontWeight: '500',
     color: color.black,
-    lineHeight: 22,
-    letterSpacing: -0.2,
     fontSize: fontSize.regular,
-  }
+  },
 };
 
 export default {
