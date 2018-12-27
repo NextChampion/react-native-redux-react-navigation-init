@@ -6,7 +6,15 @@ const IS_IPAD_PRO_97 = height === 480;
 const IS_IPHONE_X = height === 812 || height === 896;
 const IS_IPHONE_PLUS = height === 736;
 
-const unit = IS_IPHONE_PLUS ? 7 : IS_IPHONE_SE ? 5 : 6;
+let unit;
+if (IS_IPHONE_PLUS) {
+  unit = 7;
+} else if (IS_IPHONE_SE) {
+  unit = 5;
+} else {
+  unit = 6;
+}
+
 const color = {
   primary1: '#5574FF',
   border: '#D8D7DC',
