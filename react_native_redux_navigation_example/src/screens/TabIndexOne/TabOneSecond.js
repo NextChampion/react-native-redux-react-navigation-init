@@ -6,10 +6,9 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
-type Props = {};
 export default class TabOneSecond extends Component<Props> {
   render() {
     return (

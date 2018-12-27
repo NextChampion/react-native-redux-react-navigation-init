@@ -6,18 +6,25 @@
  * @flow
  */
 
-import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-import { dispatch } from "../../redux";
-import Button from "../../components/Button";
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import { dispatch } from '../../redux';
+import Button from '../../components/Button';
 
-type Props = {};
 export default class TabIndexOne extends Component<Props> {
+  static navigationOptions = ({ navigation }) => {
+    console.log('onenavigationnavigation', navigation);
+    return {
+      title: `${navigation.state.routeName}'s Profile'`,
+    };
+  };
+
   onStart = () => {
-    this.props.navigation.navigate("tabOneSecond");
+    this.props.navigation.navigate('tabOneSecond');
   };
 
   render() {
+    console.log(' one navigation', this.props.navigation);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
@@ -27,14 +34,23 @@ export default class TabIndexOne extends Component<Props> {
           type="small"
           name="Increment"
           onPress={() => {
-            dispatch("INCREMENT");
+            dispatch('INCREMENT');
           }}
         />
         <Button
           type="small"
           name="Decrement"
           onPress={() => {
-            dispatch("DECREMENT");
+            dispatch('DECREMENT');
+          }}
+        />
+        <Button
+          type="small"
+          name="Decrement"
+          onPress={() => {
+            this.props.navigation.setParams({
+              title: 'One',
+            });
           }}
         />
       </View>
@@ -45,18 +61,18 @@ export default class TabIndexOne extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10
+    textAlign: 'center',
+    margin: 10,
   },
   instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });

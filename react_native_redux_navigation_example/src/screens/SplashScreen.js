@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { connect } from '../redux';
 import Container from '../components/Container';
@@ -7,9 +7,8 @@ import UI from '../UI';
 import Button from '../components/Button';
 
 class Splash extends Component<{}> {
-
   static navigationOptions = ({ navigation }) => {
-    const headerLeft =null;
+    const headerLeft = null;
     const headerStyle = {
       backgroundColor: UI.color.white1,
       borderBottomWidth: 0,
@@ -24,32 +23,29 @@ class Splash extends Component<{}> {
     return { headerLeft, headerStyle };
   };
 
-  state = {
+  state = {};
+
+  componentDidMount() {
+    console.log('[SplashScreen], navigation', this.props.navigation);
   }
 
   onStart = () => {
-    console.log('[hahahahahah], navigation', this.props.navigation);
     this.props.navigation.navigate('main');
-  }
+  };
 
   render() {
-    const degrees = ' Six Degrees of Separation';
     return (
       <Container>
         <View style={styles.content}>
           <Text>SplashScreen</Text>
-        </View >
-        <Button
-            type='small'
-            name='Get Started'
-            onPress={this.onStart}
-          />
+        </View>
+        <Button type="small" name="Get Started" onPress={this.onStart} />
       </Container>
     );
   }
 }
 
-export default connect(['version'])(Splash)
+export default connect(['version'])(Splash);
 
 const styles = StyleSheet.create({
   images: {
@@ -69,6 +65,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: UI.color.black,
-    fontFamily: 'AvenirNext-Medium'
+    fontFamily: 'AvenirNext-Medium',
   },
 });
