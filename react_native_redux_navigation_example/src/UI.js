@@ -35,8 +35,8 @@ const size = {
 const fontSize = {
   tiny: IS_IPHONE_SE ? 8 : 12,
   regular: IS_IPHONE_SE ? 14 : 16,
-  large: IS_IPHONE_SE ? 16 : 18,
-  big: IS_IPHONE_SE ? 26 : 30,
+  big: IS_IPHONE_SE ? 16 : 18,
+  large: IS_IPHONE_SE ? 26 : 30,
   huge: IS_IPHONE_SE ? 32 : 36,
 };
 
